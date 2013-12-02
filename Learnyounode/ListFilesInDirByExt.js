@@ -1,7 +1,7 @@
 var PrintOutFiles = function(err, list) {
     if (!err) {
         var extPatern = new RegExp('\\.' + process.argv[3] + '+$', 'i');
-        list.forEach(function (fileName) {
+        list.forEach(function(fileName) {
             if (extPatern.test(fileName)) {
                 console.log(fileName);
             }
