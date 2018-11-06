@@ -1,11 +1,17 @@
 var PrintOutFiles = function(err, list) {
     if (!err) {
-        var extPatern = new RegExp('\\.' + process.argv[3] + '+$', 'i');
+        // var extPatern = new RegExp('\\.' + process.argv[3] + '+$', 'i');
+        // list.forEach(function(fileName) {
+        //     if (extPatern.test(fileName)) {
+        //         console.log(fileName);
+        //     }
+        // });
+        var path = require('path');
         list.forEach(function(fileName) {
-            if (extPatern.test(fileName)) {
+            if (path.extname(fileName) === process.argv[3]) {
                 console.log(fileName);
             }
-        })
+        });
     } else {
         console.log('Some error: ' + err);
     }
