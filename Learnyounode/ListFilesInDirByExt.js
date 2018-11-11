@@ -8,7 +8,7 @@ var PrintOutFiles = function(err, list) {
         // });
         var path = require('path');
         list.forEach(function(fileName) {
-            if (path.extname(fileName) === process.argv[3]) {
+            if (path.extname(fileName) === '.' + process.argv[3]) {
                 console.log(fileName);
             }
         });
