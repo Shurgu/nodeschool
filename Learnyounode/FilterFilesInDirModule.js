@@ -1,13 +1,17 @@
 module.exports = function(dir, ext, callback) {
     var FilterFiles = function(err, list) {
         if (!err) {
-            var extPatern = new RegExp('\\.' + ext + '+$', 'i');
+            // var extPatern = new RegExp('\\.' + ext + '+$', 'i');
+            // var files = list.filter(function(fileName) {
+            //     return extPatern.test(fileName);
+            // });
+            var path = require('path');
             var files = list.filter(function(fileName) {
-                return extPatern.test(fileName);
+                return path.extname(fileName) === '.' + ext;
             });
             callback(null, files);
         } else {
-            callback(err);
+            return callback(err);
         }
     }
 
